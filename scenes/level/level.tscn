@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cqmys5lub7pi2"]
+[gd_scene load_steps=33 format=3 uid="uid://cqmys5lub7pi2"]
 
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_block.gd" id="1_l2bxi"]
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/resources/convex_block_data.gd" id="2_o1r2e"]
@@ -7,6 +7,8 @@
 [ext_resource type="Material" uid="uid://c4rck48ibxd8" path="res://assets/material/stone.tres" id="4_rq2ha"]
 [ext_resource type="Material" uid="uid://bbegwe8lk22iq" path="res://assets/material/wood.tres" id="5_fe6f4"]
 [ext_resource type="PackedScene" uid="uid://smmuvh6ok1rv" path="res://objects/worldblockgrid/world_block_grid.tscn" id="6_1ke2d"]
+[ext_resource type="Script" path="res://objects/shop/ShopColl.gd" id="6_qbc1m"]
+[ext_resource type="PackedScene" uid="uid://cl8dmh5oxqveu" path="res://scenes/ui/shop.tscn" id="7_1lq0y"]
 
 [sub_resource type="Environment" id="Environment_odq0o"]
 background_mode = 1
@@ -397,6 +399,10 @@ size = Vector3(1, 0.2, 0.8)
 material = SubResource("StandardMaterial3D_7gbr6")
 size = Vector3(1, 0.2, 0.3)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kydr8"]
+radius = 2.3
+height = 5.0
+
 [node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -540,7 +546,19 @@ transform = Transform3D(1, 0, 0, 0, 0.0182726, -0.999833, 0, 0.999833, 0.0182726
 mesh = SubResource("BoxMesh_mbw1d")
 skeleton = NodePath("../..")
 
+[node name="ShopColl" type="Area3D" parent="WorldArea/Shop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264015, 0, 0)
+script = ExtResource("6_qbc1m")
+shop_scene = ExtResource("7_1lq0y")
+
+[node name="ShopCollShape" type="CollisionShape3D" parent="WorldArea/Shop/ShopColl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65891, 1.30684, 0.562187)
+shape = SubResource("CapsuleShape3D_kydr8")
+
 [node name="Player" parent="." instance=ExtResource("4_6u4t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.71156, 12.3823)
 
 [node name="WorldBlockGrid" parent="." instance=ExtResource("6_1ke2d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
+
+[connection signal="body_entered" from="WorldArea/Shop/ShopColl" to="WorldArea/Shop/ShopColl" method="_on_body_entered"]

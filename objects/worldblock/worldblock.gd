@@ -3,6 +3,7 @@ class_name WorldBlock extends StaticBody3D
 signal s_break_block
 
 @onready var block_mesh = %BlockMesh
+@onready var block_coll = %BlockCollision
 @onready var death_timer = %DeathTimer
 @onready var particle_timer = %ParticleTimer
 @onready var block_particles = %BlockParticles
@@ -30,6 +31,7 @@ func attempt_break_block() -> void:
 	s_break_block.emit(self)
 
 func break_block() -> void:
+	block_coll.disabled = true
 	block_particles.draw_pass_1.material = block_resource.material.duplicate()
 	block_particles.emitting = true
 	# Just in case change this blocks resource to air

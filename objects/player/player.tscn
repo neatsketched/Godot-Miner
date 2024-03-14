@@ -9,7 +9,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7xf57"]
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74353, 11.4841)
 script = ExtResource("1_px60s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -29,3 +28,4 @@ unique_name_in_owner = true
 [node name="BlockRay" parent="." instance=ExtResource("2_bfb3d")]
 
 [node name="UILayer" parent="." instance=ExtResource("3_q5tom")]
+unique_name_in_owner = true

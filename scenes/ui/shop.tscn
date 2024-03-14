@@ -1,0 +1,158 @@
+[gd_scene load_steps=14 format=3 uid="uid://cl8dmh5oxqveu"]
+
+[ext_resource type="PackedScene" uid="uid://dynl4h43bkgch" path="res://objects/ui/block_inventory_entry.tscn" id="1_lblk6"]
+[ext_resource type="Script" path="res://objects/shop/shop.gd" id="1_rbvb8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gdi5i"]
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21v3q"]
+bg_color = Color(0, 0.705882, 0.505882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvbbt"]
+bg_color = Color(0, 0.827451, 0.596078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg8ln"]
+bg_color = Color(0, 0.509804, 0.360784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omtgx"]
+bg_color = Color(0, 0.301961, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyv83"]
+bg_color = Color(0, 0.941176, 0.678431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1ly6"]
+bg_color = Color(0.984314, 0.333333, 0.443137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qijh"]
+bg_color = Color(0.996078, 0.576471, 0.615686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk85j"]
+bg_color = Color(0.886275, 0.117647, 0.321569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkj60"]
+bg_color = Color(0.372549, 0.0156863, 0.113725, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72y0t"]
+bg_color = Color(1, 0.878431, 0.886275, 1)
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rbvb8")
+block_inventory_entry = ExtResource("1_lblk6")
+
+[node name="MidAnchor" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="PanelContainer" parent="MidAnchor"]
+layout_mode = 0
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MidAnchor/Container"]
+layout_mode = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="MidAnchor/Container/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="TitleLabel" type="Label" parent="MidAnchor/Container/VBoxContainer/TitleMargin"]
+layout_mode = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_gdi5i")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MidAnchor/Container/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HorizontalContainer" type="HBoxContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 425)
+layout_mode = 2
+
+[node name="LeftContainer" type="ScrollContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer"]
+custom_minimum_size = Vector2(345, 0)
+layout_mode = 2
+
+[node name="InventoryContainer" type="VBoxContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/LeftContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer"]
+layout_mode = 2
+
+[node name="RightContainer" type="PanelContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 164
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="RightVBox" type="VBoxContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SellValueLabel" type="Label" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "Total Sell Value:
+$0"
+horizontal_alignment = 1
+
+[node name="SellButton" type="Button" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_21v3q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fvbbt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bg8ln")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_omtgx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eyv83")
+text = "Sell"
+
+[node name="XMargin" type="MarginContainer" parent="MidAnchor/Container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="XButton" type="Button" parent="MidAnchor/Container/XMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h1ly6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7qijh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qk85j")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_bkj60")
+theme_override_styles/focus = SubResource("StyleBoxFlat_72y0t")
+text = " X "
+
+[connection signal="pressed" from="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer/MarginContainer/RightVBox/SellButton" to="." method="_on_sell_button_pressed"]
