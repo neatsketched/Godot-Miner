@@ -18,18 +18,18 @@ var standard_color = Color.WHITE
 		block_mesh.get_surface_override_material(0).albedo_color = albedo_color
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	update_block_mesh()
 
-func update_block_mesh():
+func update_block_mesh() -> void:
 	# Set the material on the block mesh to be our stored material from the resource
 	block_mesh.set_surface_override_material(0, block_resource.material.duplicate())
 	standard_color = block_mesh.get_surface_override_material(0).albedo_color
 
-func attempt_break_block():
+func attempt_break_block() -> void:
 	s_break_block.emit(self)
 
-func break_block():
+func break_block() -> void:
 	block_particles.draw_pass_1.material = block_resource.material.duplicate()
 	block_particles.emitting = true
 	# Just in case change this blocks resource to air
@@ -41,7 +41,7 @@ func break_block():
 	particle_timer.timeout.connect(stop_particles)
 	particle_timer.start()
 
-func stop_particles():
+func stop_particles() -> void:
 	block_particles.emitting = false
 
 func is_valid_for_selection() -> bool:

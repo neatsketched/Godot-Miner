@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvih3c5g2racm"]
+[gd_scene load_steps=4 format=3 uid="uid://dvih3c5g2racm"]
 
 [ext_resource type="Texture2D" uid="uid://bwotke0ytjwex" path="res://assets/sprites/crosshair.png" id="1_pcdf0"]
+[ext_resource type="PackedScene" uid="uid://cw0a35ln64bgf" path="res://objects/ui/inventory_container.tscn" id="2_lv8tu"]
+[ext_resource type="PackedScene" uid="uid://dynl4h43bkgch" path="res://objects/ui/block_inventory_entry.tscn" id="2_t3bpy"]
 
 [node name="UILayer" type="CanvasLayer"]
 
@@ -35,3 +37,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("1_pcdf0")
+
+[node name="InventoryContainer" parent="UIControl" instance=ExtResource("2_lv8tu")]
+layout_mode = 1
+block_inventory_entry = ExtResource("2_t3bpy")

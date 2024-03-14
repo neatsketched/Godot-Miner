@@ -1,22 +1,14 @@
-[gd_resource type="Resource" script_class="Block" load_steps=6 format=3 uid="uid://cxom2f1pud4u6"]
+[gd_resource type="Resource" script_class="Block" load_steps=4 format=3 uid="uid://cxom2f1pud4u6"]
 
 [ext_resource type="Script" path="res://resources/base/block.gd" id="1_7tixv"]
 [ext_resource type="Texture2D" uid="uid://cxqy44olbpnhr" path="res://assets/sprites/stone.png" id="1_nkrxw"]
-[ext_resource type="Shader" path="res://objects/worldblock/worldblock.gdshader" id="2_ldrnp"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jl8pf"]
-render_priority = 0
-shader = ExtResource("2_ldrnp")
-shader_parameter/outline_color = null
-shader_parameter/outline_width = 2.0
-shader_parameter/constant_width = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qnyo"]
-next_pass = SubResource("ShaderMaterial_jl8pf")
 albedo_texture = ExtResource("1_nkrxw")
 
 [resource]
 script = ExtResource("1_7tixv")
+name = "Stone"
 block_type = 3
 material = SubResource("StandardMaterial3D_4qnyo")
 value = 2

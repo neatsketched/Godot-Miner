@@ -12,15 +12,15 @@ var last_block_hit: WorldBlock = null:
 			last_block_hit.selected = true
 			last_block_hit.tree_exited.connect(lost_last_block_hit)
 
-func lost_last_block_hit():
+func lost_last_block_hit() -> void:
 	last_block_hit = null
 
-func _process(delta):
+func _process(_delta) -> void:
 	if Input.is_action_just_pressed("break_block") and last_block_hit:
 		last_block_hit.attempt_break_block()
 		last_block_hit = null
 
-func _physics_process(delta):
+func _physics_process(_delta) -> void:
 	if not Player.instance:
 		return
 
