@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch8ovo4swqvc8"]
+
+[ext_resource type="Script" path="res://objects/player/Player.gd" id="1_px60s"]
+[ext_resource type="PackedScene" uid="uid://barm0x8k0eeu1" path="res://objects/blockray/block_ray.tscn" id="2_bfb3d"]
+[ext_resource type="PackedScene" uid="uid://dvih3c5g2racm" path="res://scenes/ui/ui_layer.tscn" id="3_q5tom"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j737d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7xf57"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74353, 11.4841)
+script = ExtResource("1_px60s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_j737d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_7xf57")
+
+[node name="RotationHelper" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56, 0)
+
+[node name="Camera" type="Camera3D" parent="RotationHelper"]
+unique_name_in_owner = true
+
+[node name="BlockRay" parent="." instance=ExtResource("2_bfb3d")]
+
+[node name="UILayer" parent="." instance=ExtResource("3_q5tom")]

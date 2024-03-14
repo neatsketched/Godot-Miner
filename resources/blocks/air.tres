@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Block" load_steps=3 format=3 uid="uid://dfiy54x7q2ncu"]
+
+[ext_resource type="Script" path="res://resources/base/block.gd" id="2_5yjql"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n00mn"]
+albedo_color = Color(1, 1, 1, 0)
+
+[resource]
+script = ExtResource("2_5yjql")
+block_type = 1
+material = SubResource("StandardMaterial3D_n00mn")
+value = 0
+spawn_range_min = 0
+spawn_range_max = 0
+spawn_weight = 0

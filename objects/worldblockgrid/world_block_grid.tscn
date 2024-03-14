@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://smmuvh6ok1rv"]
+
+[ext_resource type="Script" path="res://objects/worldblockgrid/world_block_grid.gd" id="1_tx2bf"]
+[ext_resource type="PackedScene" uid="uid://dg8pj3bcwqs5k" path="res://objects/worldblock/worldblock.tscn" id="2_kgo21"]
+
+[node name="WorldBlockGrid" type="Node3D"]
+script = ExtResource("1_tx2bf")
+block_scene = ExtResource("2_kgo21")

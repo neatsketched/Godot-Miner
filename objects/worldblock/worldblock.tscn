@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg8pj3bcwqs5k"]
+
+[ext_resource type="Script" path="res://objects/worldblock/worldblock.gd" id="1_8qq62"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vpxgo"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0e5i"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_luk02"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 52.2
+angle_max = 104.2
+spread = 136.084
+initial_velocity_min = 3.0
+initial_velocity_max = 8.0
+collision_mode = 1
+collision_friction = 0.5
+collision_bounce = 0.5
+collision_use_scale = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_b10fo"]
+size = Vector3(0.4, 0.4, 0.4)
+
+[node name="WorldBlock" type="StaticBody3D"]
+script = ExtResource("1_8qq62")
+
+[node name="BlockMesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+mesh = SubResource("BoxMesh_vpxgo")
+
+[node name="BlockCollision" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_v0e5i")
+
+[node name="BlockParticles" type="GPUParticles3D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 200
+lifetime = 2.5
+visibility_aabb = AABB(-1.04272, -1.01723, -0.97808, 2.08545, 2.03446, 1.95616)
+process_material = SubResource("ParticleProcessMaterial_luk02")
+draw_pass_1 = SubResource("BoxMesh_b10fo")
+
+[node name="DeathTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+
+[node name="ParticleTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
