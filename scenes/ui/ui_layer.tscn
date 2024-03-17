@@ -52,9 +52,6 @@ offset_right = -253.0
 
 [node name="DepthContainer" parent="UIControl" instance=ExtResource("5_jrngf")]
 layout_mode = 1
-offset_top = -61.0
-offset_right = 185.0
-offset_bottom = -3.0
 scale = Vector2(1.05, 1.05)
 
 [node name="TeleportControl" parent="UIControl" instance=ExtResource("6_g2bhg")]

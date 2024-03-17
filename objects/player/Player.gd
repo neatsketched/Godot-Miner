@@ -12,6 +12,10 @@ const SENSITIVITY = 0.005
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var target_fov: float:
+	get:
+		return 75 + max(0, abs(velocity.y) - 15)
+
 func _init():
 	Player.instance = self
 
@@ -38,6 +42,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	camera.fov = lerpf(camera.fov, target_fov, 0.1)
 
 	move_and_slide()
 
