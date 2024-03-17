@@ -15,7 +15,7 @@ enum BlockType {
 
 const BlockSize: int = 2
 # These blocks can't be selected/broken
-const UnbreakableBlocks = [BlockType.AIR, BlockType.NOTHING]
+const UnbreakableBlocks = [BlockType.AIR, BlockType.NOTHING, BlockType.BEDROCK]
 
 static var BlockToResource: Dictionary = {
 	BlockType.NOTHING: load("res://resources/blocks/air.tres"),
