@@ -25,6 +25,7 @@ static var BlockToResource: Dictionary = {
 	BlockType.STONE: load("res://resources/blocks/stone.tres"),
 	# Ores
 	BlockType.COPPER: load("res://resources/blocks/copper.tres"),
+	BlockType.SILVER: load("res://resources/blocks/silver.tres"),
 	# Unbreakable
 	BlockType.BEDROCK: load("res://resources/blocks/bedrock.tres"),
 }
