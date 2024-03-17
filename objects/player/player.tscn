@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dvih3c5g2racm" path="res://scenes/ui/ui_layer.tscn" id="3_q5tom"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_j737d"]
+height = 1.9
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7xf57"]
+height = 1.9
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_px60s")

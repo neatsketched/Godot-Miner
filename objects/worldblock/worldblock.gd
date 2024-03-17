@@ -12,6 +12,7 @@ signal s_break_block
 var standard_color = Color.WHITE
 
 @export var block_resource: Block
+@export var block_position := Vector3(0, 0, 0)
 @export var selected := false:
 	set(x):
 		selected = x
@@ -28,6 +29,9 @@ func update_block_mesh() -> void:
 	standard_color = block_mesh.get_surface_override_material(0).albedo_color
 
 func attempt_break_block() -> void:
+	if not is_valid_for_selection():
+		return
+
 	s_break_block.emit(self)
 
 func break_block() -> void:
@@ -47,4 +51,4 @@ func stop_particles() -> void:
 	block_particles.emitting = false
 
 func is_valid_for_selection() -> bool:
-	return block_resource.block_type != Constants.BlockType.AIR
+	return block_resource.block_type not in [Constants.BlockType.AIR, Constants.BlockType.BEDROCK]

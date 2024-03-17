@@ -6,7 +6,7 @@ static var instance: Player = null
 @onready var rotation_helper: Node3D = %RotationHelper
 
 const SPEED = 10.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 8.0
 const SENSITIVITY = 0.005
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -44,4 +44,4 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotation_helper.rotate_y(-event.relative.x*SENSITIVITY)
 		camera.rotate_x(-event.relative.y*SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-70),deg_to_rad(70))
+		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-85),deg_to_rad(85))

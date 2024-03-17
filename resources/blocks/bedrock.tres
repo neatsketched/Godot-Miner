@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Block" load_steps=4 format=3 uid="uid://cxlldqx0tcsku"]
+
+[ext_resource type="Texture2D" uid="uid://crtle4mew4o2y" path="res://assets/sprites/bedrock.png" id="1_62nrp"]
+[ext_resource type="Script" path="res://resources/base/block.gd" id="2_pqdv3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7al5w"]
+albedo_texture = ExtResource("1_62nrp")
+
+[resource]
+script = ExtResource("2_pqdv3")
+name = "Bedrock"
+block_type = 11
+material = SubResource("StandardMaterial3D_7al5w")
+value = 0
+spawn_range_min = 1000
+spawn_range_max = 2000
+spawn_weight = 10000

@@ -4,7 +4,7 @@
             "default_block_height": 1
         },
         "material_brush": {
-            "color": "(1, 1, 1, 1)",
+            "color": "(0, 0, 0, 1)",
             "erase_material": false,
             "individual_faces": false,
             "paint_color": false,

@@ -1,17 +1,14 @@
-[gd_resource type="Resource" script_class="Block" load_steps=4 format=3 uid="uid://cxom2f1pud4u6"]
+[gd_resource type="Resource" script_class="Block" load_steps=3 format=3 uid="uid://cxom2f1pud4u6"]
 
 [ext_resource type="Script" path="res://resources/base/block.gd" id="1_7tixv"]
-[ext_resource type="Texture2D" uid="uid://cxqy44olbpnhr" path="res://assets/sprites/stone.png" id="1_nkrxw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qnyo"]
-albedo_texture = ExtResource("1_nkrxw")
+[ext_resource type="Material" uid="uid://bmbxtr8qpeuwp" path="res://assets/material/stone_block.tres" id="1_w5u4e"]
 
 [resource]
 script = ExtResource("1_7tixv")
 name = "Stone"
 block_type = 3
-material = SubResource("StandardMaterial3D_4qnyo")
+material = ExtResource("1_w5u4e")
 value = 2
 spawn_range_min = 50
-spawn_range_max = 100
-spawn_weight = 50
+spawn_range_max = 500
+spawn_weight = 75

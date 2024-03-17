@@ -10,5 +10,5 @@ block_type = 2
 material = ExtResource("1_kjop7")
 value = 1
 spawn_range_min = 0
-spawn_range_max = 60
-spawn_weight = 50
+spawn_range_max = 75
+spawn_weight = 100
