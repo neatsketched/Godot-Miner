@@ -18,6 +18,7 @@ func _begin_teleport():
 		_teleport_visual_begin(Constants.calculate_teleport_time())
 
 func _timer_done():
+	teleport_time = 0
 	_teleport_visual_cleanup()
 
 func _teleport_visual_begin(new_time: int):
