@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cqmys5lub7pi2"]
+[gd_scene load_steps=35 format=3 uid="uid://cqmys5lub7pi2"]
 
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_block.gd" id="1_l2bxi"]
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/resources/convex_block_data.gd" id="2_o1r2e"]
@@ -10,11 +10,23 @@
 [ext_resource type="Script" path="res://objects/shop/ShopColl.gd" id="6_qbc1m"]
 [ext_resource type="PackedScene" uid="uid://cl8dmh5oxqveu" path="res://scenes/ui/shop.tscn" id="7_1lq0y"]
 
-[sub_resource type="Environment" id="Environment_odq0o"]
-background_mode = 1
-background_color = Color(0.494118, 0.768627, 0.854902, 1)
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ibfmj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_32gqy"]
+sky_material = SubResource("ProceduralSkyMaterial_ibfmj")
+
+[sub_resource type="Environment" id="Environment_337bi"]
+background_mode = 2
+background_color = Color(0.254902, 0.407843, 0.584314, 1)
+sky = SubResource("Sky_32gqy")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.901961, 0.968627, 0.996078, 1)
+volumetric_fog_emission = Color(0.282353, 0.282353, 0.282353, 1)
 
 [sub_resource type="Resource" id="Resource_dfglt"]
 script = ExtResource("2_o1r2e")
@@ -406,7 +418,11 @@ height = 5.0
 [node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_odq0o")
+environment = SubResource("Environment_337bi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="WorldArea" type="Node3D" parent="."]
 

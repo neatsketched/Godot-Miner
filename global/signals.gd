@@ -1,0 +1,4 @@
+extends Node
+
+signal s_teleport_surface
+signal s_teleport_surface_done

@@ -28,6 +28,8 @@ size = Vector3(0.4, 0.4, 0.4)
 
 [node name="WorldBlock" type="StaticBody3D"]
 script = ExtResource("1_8qq62")
+block_position = null
+selected = null
 
 [node name="BlockMesh" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true

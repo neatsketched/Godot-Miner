@@ -51,7 +51,7 @@ func create_block(pos: Vector3, block_type: Constants.BlockType) -> void:
 	new_block.block_resource = block_resource
 	new_block.block_position = pos
 	add_child(new_block)
-	new_block.position = Vector3((pos.x)*2, pos.z*-2, (pos.y)*2)
+	new_block.position = Vector3((pos.x)*Constants.BlockSize, pos.z*-Constants.BlockSize, (pos.y)*Constants.BlockSize)
 	_add_block_to_matrix(new_block, block_type)
 	new_block.s_break_block.connect(break_block)
 

@@ -17,6 +17,7 @@ func _init():
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Signals.s_teleport_surface_done.connect(_teleport_surface_done)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -45,3 +46,10 @@ func _unhandled_input(event):
 		rotation_helper.rotate_y(-event.relative.x*SENSITIVITY)
 		camera.rotate_x(-event.relative.y*SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-85),deg_to_rad(85))
+
+func _teleport_surface_done():
+	# Move the player to the starting position
+	global_position = Vector3(0, 3, 12.3)
+	# Also clear out their rotation so they're not just facing a wall
+	rotation_helper.rotate_y(-rotation_helper.rotation.y)
+	camera.rotate_x(-camera.rotation.x)

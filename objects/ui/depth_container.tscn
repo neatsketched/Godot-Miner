@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv5237ddoe5cu"]
+
+[ext_resource type="Script" path="res://objects/ui/DepthLabel.gd" id="1_4v5jn"]
+[ext_resource type="Script" path="res://objects/ui/DepthTeleportButton.gd" id="1_i40k5"]
+[ext_resource type="Texture2D" uid="uid://elv8q0fo8e7n" path="res://assets/sprites/escbutton.png" id="3_sro12"]
+
+[node name="DepthContainer" type="VBoxContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 140.0
+grow_vertical = 0
+
+[node name="DepthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Depth: 0"
+horizontal_alignment = 1
+script = ExtResource("1_4v5jn")
+
+[node name="DepthTeleportButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "       Teleport to Surface"
+script = ExtResource("1_i40k5")
+
+[node name="EscButtonImage" type="TextureRect" parent="DepthTeleportButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 129.0
+offset_bottom = 128.0
+scale = Vector2(0.238786, 0.238786)
+texture = ExtResource("3_sro12")
+
+[connection signal="pressed" from="DepthTeleportButton" to="DepthTeleportButton" method="_on_pressed"]

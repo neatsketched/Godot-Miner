@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvih3c5g2racm"]
+[gd_scene load_steps=7 format=3 uid="uid://dvih3c5g2racm"]
 
 [ext_resource type="Texture2D" uid="uid://bwotke0ytjwex" path="res://assets/sprites/crosshair.png" id="1_pcdf0"]
 [ext_resource type="PackedScene" uid="uid://cw0a35ln64bgf" path="res://objects/ui/inventory_container.tscn" id="2_lv8tu"]
 [ext_resource type="PackedScene" uid="uid://dynl4h43bkgch" path="res://objects/ui/block_inventory_entry.tscn" id="2_t3bpy"]
 [ext_resource type="PackedScene" uid="uid://c6ofbeyeud5i" path="res://objects/ui/cash_container.tscn" id="4_1xujh"]
+[ext_resource type="PackedScene" uid="uid://dv5237ddoe5cu" path="res://objects/ui/depth_container.tscn" id="5_jrngf"]
+[ext_resource type="PackedScene" uid="uid://b6pqub26nues0" path="res://objects/ui/teleport_control.tscn" id="6_g2bhg"]
 
 [node name="UILayer" type="CanvasLayer"]
 
@@ -44,15 +46,17 @@ layout_mode = 1
 block_inventory_entry = ExtResource("2_t3bpy")
 
 [node name="CashContainer" parent="UIControl" instance=ExtResource("4_1xujh")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 798.0
-offset_top = 625.0
-offset_right = 898.0
-offset_bottom = 648.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+offset_left = -353.0
+offset_right = -253.0
+
+[node name="DepthContainer" parent="UIControl" instance=ExtResource("5_jrngf")]
+layout_mode = 1
+offset_top = -61.0
+offset_right = 185.0
+offset_bottom = -3.0
+scale = Vector2(1.05, 1.05)
+
+[node name="TeleportControl" parent="UIControl" instance=ExtResource("6_g2bhg")]
+unique_name_in_owner = true
+layout_mode = 1

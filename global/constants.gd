@@ -13,6 +13,10 @@ enum BlockType {
 	BEDROCK,
 }
 
+const BlockSize: int = 2
+# These blocks can't be selected/broken
+const UnbreakableBlocks = [BlockType.AIR, BlockType.NOTHING]
+
 static var BlockToResource: Dictionary = {
 	BlockType.NOTHING: load("res://resources/blocks/air.tres"),
 	BlockType.AIR: load("res://resources/blocks/air.tres"),
@@ -63,3 +67,14 @@ static func random_weights(d: Dictionary):
 		tw += w
 		if weight_rng <= tw:
 			return d[w]
+
+static func calculate_teleport_time() -> int:
+	# Teleport time is equal to the player's depth (in blocks) divided by 10
+	if not Player.instance:
+		return 5
+	return int(round(Player.instance.global_position.y / (-10*BlockSize)))
+
+static func get_player_depth_value() -> int:
+	if not Player.instance:
+		return 0
+	return max(int(1+round(Player.instance.global_position.y / -BlockSize)), 0)

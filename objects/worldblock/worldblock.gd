@@ -51,4 +51,4 @@ func stop_particles() -> void:
 	block_particles.emitting = false
 
 func is_valid_for_selection() -> bool:
-	return block_resource.block_type not in [Constants.BlockType.AIR, Constants.BlockType.BEDROCK]
+	return block_resource.block_type not in Constants.UnbreakableBlocks
