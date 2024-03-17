@@ -82,20 +82,10 @@ func _add_block_to_matrix(block: WorldBlock, block_type: Constants.BlockType):
 	var real_x = int(round(pos.x))
 	var real_y = int(round(pos.y))
 	var real_z = int(round(pos.z))
-	if real_x not in block_state_matrix.keys():
-		block_state_matrix[real_x] = {}
-	if real_y not in block_state_matrix[real_x].keys():
-		block_state_matrix[real_x][real_y] = {}
-	block_state_matrix[real_x][real_y][real_z] = block_type
+	block_state_matrix[Vector3(real_x, real_y, real_z)] = block_type
 
 func _is_block_in_matrix(pos: Vector3) -> bool:
 	var real_x = int(round(pos.x))
 	var real_y = int(round(pos.y))
 	var real_z = int(round(pos.z))
-	if real_x not in block_state_matrix.keys():
-		return false
-	elif real_y not in block_state_matrix[real_x].keys():
-		return false
-	elif real_z not in block_state_matrix[real_x][real_y].keys():
-		return false
-	return true
+	return Vector3(real_x, real_y, real_z) in block_state_matrix.keys()
