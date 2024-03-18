@@ -10,5 +10,6 @@ block_type = 7
 material = ExtResource("1_38tv5")
 value = 20
 spawn_range_min = 50
-spawn_range_max = 150
+spawn_range_max = 245
 spawn_weight = 6
+break_time = 2.5

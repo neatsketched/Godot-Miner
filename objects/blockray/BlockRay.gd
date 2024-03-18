@@ -6,19 +6,29 @@ var last_block_hit: WorldBlock = null:
 	set(x):
 		if last_block_hit and is_instance_valid(last_block_hit):
 			last_block_hit.selected = false
+			if last_block_hit.breaking_block:
+				last_block_hit.stop_attempt_break_block()
 			last_block_hit.tree_exited.disconnect(lost_last_block_hit)
 		last_block_hit = x
 		if last_block_hit:
 			last_block_hit.selected = true
 			last_block_hit.tree_exited.connect(lost_last_block_hit)
+			# If we target a new block and the break is still held,
+			# then go ahead and begin breaking this new one
+			if Input.is_action_pressed("break_block"):
+				last_block_hit.begin_attempt_break_block()
 
 func lost_last_block_hit() -> void:
 	last_block_hit = null
 
 func _process(_delta) -> void:
-	if Input.is_action_just_pressed("break_block") and last_block_hit:
-		last_block_hit.attempt_break_block()
-		last_block_hit = null
+	if not last_block_hit:
+		return
+
+	if Input.is_action_just_pressed("break_block"):
+		last_block_hit.begin_attempt_break_block()
+	elif Input.is_action_just_released("break_block"):
+		last_block_hit.stop_attempt_break_block()
 
 func _physics_process(_delta) -> void:
 	if not Player.instance:

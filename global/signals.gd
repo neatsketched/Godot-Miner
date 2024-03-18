@@ -2,3 +2,6 @@ extends Node
 
 signal s_teleport_surface
 signal s_teleport_surface_done
+
+signal s_break_block_ui_begin
+signal s_break_block_ui_end

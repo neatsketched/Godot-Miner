@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvih3c5g2racm"]
+[gd_scene load_steps=9 format=3 uid="uid://dvih3c5g2racm"]
 
 [ext_resource type="Texture2D" uid="uid://bwotke0ytjwex" path="res://assets/sprites/crosshair.png" id="1_pcdf0"]
+[ext_resource type="Script" path="res://scenes/ui/BreakProgressBar.gd" id="2_8p6p8"]
 [ext_resource type="PackedScene" uid="uid://cw0a35ln64bgf" path="res://objects/ui/inventory_container.tscn" id="2_lv8tu"]
 [ext_resource type="PackedScene" uid="uid://dynl4h43bkgch" path="res://objects/ui/block_inventory_entry.tscn" id="2_t3bpy"]
 [ext_resource type="PackedScene" uid="uid://c6ofbeyeud5i" path="res://objects/ui/cash_container.tscn" id="4_1xujh"]
 [ext_resource type="PackedScene" uid="uid://dv5237ddoe5cu" path="res://objects/ui/depth_container.tscn" id="5_jrngf"]
 [ext_resource type="PackedScene" uid="uid://b6pqub26nues0" path="res://objects/ui/teleport_control.tscn" id="6_g2bhg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30ynm"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="UILayer" type="CanvasLayer"]
 
@@ -40,6 +48,18 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("1_pcdf0")
+
+[node name="BreakProgressBar" type="ProgressBar" parent="UIControl/MidControl"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 34.0
+offset_right = 35.0
+offset_bottom = 38.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_30ynm")
+show_percentage = false
+script = ExtResource("2_8p6p8")
 
 [node name="InventoryContainer" parent="UIControl" instance=ExtResource("2_lv8tu")]
 layout_mode = 1

@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://objects/worldblock/worldblock.gd" id="1_8qq62"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vpxgo"]
+lightmap_size_hint = Vector2i(24, 36)
 size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v0e5i"]

@@ -8,3 +8,4 @@ class_name Block extends Resource
 @export var spawn_range_min: int
 @export var spawn_range_max: int
 @export var spawn_weight: int
+@export var break_time: float

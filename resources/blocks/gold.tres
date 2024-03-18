@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Block" load_steps=3 format=3 uid="uid://b8heovpf6yvex"]
+
+[ext_resource type="Material" uid="uid://cj6is6sljtqdt" path="res://assets/material/gold.tres" id="1_i45p4"]
+[ext_resource type="Script" path="res://resources/base/block.gd" id="2_tekkj"]
+
+[resource]
+script = ExtResource("2_tekkj")
+name = "Gold"
+block_type = 8
+material = ExtResource("1_i45p4")
+value = 35
+spawn_range_min = 75
+spawn_range_max = 340
+spawn_weight = 4
+break_time = 3.0

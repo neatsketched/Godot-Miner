@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cj6is6sljtqdt"]
+
+[ext_resource type="Texture2D" uid="uid://b640ae8r8iy7d" path="res://assets/sprites/gold.png" id="1_c8t0y"]
+
+[resource]
+albedo_texture = ExtResource("1_c8t0y")
+uv1_scale = Vector3(3, 3, 3)
+texture_filter = 0

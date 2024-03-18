@@ -26,6 +26,7 @@ static var BlockToResource: Dictionary = {
 	# Ores
 	BlockType.COPPER: load("res://resources/blocks/copper.tres"),
 	BlockType.SILVER: load("res://resources/blocks/silver.tres"),
+	BlockType.GOLD: load("res://resources/blocks/gold.tres"),
 	# Unbreakable
 	BlockType.BEDROCK: load("res://resources/blocks/bedrock.tres"),
 }
@@ -79,3 +80,7 @@ static func get_player_depth_value() -> int:
 	if not Player.instance:
 		return 0
 	return max(int(1+round(Player.instance.global_position.y / -BlockSize)), 0)
+
+static func calculate_break_time(block: WorldBlock) -> float:
+	var base_block_value = 4.0 * block.block_resource.break_time
+	return base_block_value

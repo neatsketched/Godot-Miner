@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" script_class="BlockBreakMaterial" load_steps=2 format=3 uid="uid://dcckyxbbeh3bk"]
+
+[ext_resource type="Script" path="res://resources/base/break_material.gd" id="1_1fqcy"]
+
+[resource]
+render_priority = -1
+transparency = 1
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+script = ExtResource("1_1fqcy")
+break_stage = 0
