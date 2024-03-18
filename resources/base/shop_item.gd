@@ -7,3 +7,5 @@ class_name ShopItem extends Resource
 @export var shop_item_type: Constants.ShopItemType
 @export var image: CompressedTexture2D
 @export var pickaxe_type: Constants.PickaxeType
+@export var inventory_size: int
+@export var required_item: Constants.ShopItemType = Constants.ShopItemType.NO_ITEM

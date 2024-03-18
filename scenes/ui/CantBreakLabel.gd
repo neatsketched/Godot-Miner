@@ -8,6 +8,10 @@ func _ready():
 
 func _begin_invalid():
 	visible = true
+	if PlayerStats.is_inventory_full():
+		text = 'Inventory Full!'
+	else:
+		text = 'Can\'t Break Block!'
 
 func _end_invalid():
 	visible = false

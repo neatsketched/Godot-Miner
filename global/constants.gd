@@ -88,17 +88,37 @@ static func get_pickaxe_resource_from_type(pickaxe_type: PickaxeType) -> Pickaxe
 	return pickaxe_resource
 
 enum ShopItemType {
+	# Pickaxes
 	STANDARD_PICKAXE,
 	REINFORCED_PICKAXE,
 	SUPREME_PICKAXE,
 	OMEGA_PICKAXE,
+	# Placeholder no item
+	NO_ITEM,
+	# Inventory space
+	INVENTORY_SPACE_25,    # 25 -> 50
+	INVENTORY_SPACE_50,    # 50 -> 100
+	INVENTORY_SPACE_100,   # 100 -> 200
+	INVENTORY_SPACE_150,   # 200 -> 350
+	INVENTORY_SPACE_250,   # 350 -> 600
+	INVENTORY_SPACE_400,   # 600 -> 1000
+	INVENTORY_SPACE_750,   # 1000 -> 1750
+	INVENTORY_SPACE_1250,  # 1750 -> 3000
 }
 
 static var ShopItemToResource: Dictionary = {
-	ShopItemType.STANDARD_PICKAXE: load("res://resources/shopitems/item_standard_pickaxe.tres"),
-	ShopItemType.REINFORCED_PICKAXE: load("res://resources/shopitems/item_reinforced_pickaxe.tres"),
-	ShopItemType.SUPREME_PICKAXE: load("res://resources/shopitems/item_supreme_pickaxe.tres"),
-	ShopItemType.OMEGA_PICKAXE: load("res://resources/shopitems/item_omega_pickaxe.tres"),
+	ShopItemType.STANDARD_PICKAXE: load("res://resources/shopitems/item_pickaxe_standard.tres"),
+	ShopItemType.REINFORCED_PICKAXE: load("res://resources/shopitems/item_pickaxe_reinforced.tres"),
+	ShopItemType.SUPREME_PICKAXE: load("res://resources/shopitems/item_pickaxe_supreme.tres"),
+	ShopItemType.OMEGA_PICKAXE: load("res://resources/shopitems/item_pickaxe_omega.tres"),
+	ShopItemType.INVENTORY_SPACE_25: load("res://resources/shopitems/item_inventory_25.tres"),
+	ShopItemType.INVENTORY_SPACE_50: load("res://resources/shopitems/item_inventory_50.tres"),
+	ShopItemType.INVENTORY_SPACE_100: load("res://resources/shopitems/item_inventory_100.tres"),
+	ShopItemType.INVENTORY_SPACE_150: load("res://resources/shopitems/item_inventory_150.tres"),
+	ShopItemType.INVENTORY_SPACE_250: load("res://resources/shopitems/item_inventory_250.tres"),
+	ShopItemType.INVENTORY_SPACE_400: load("res://resources/shopitems/item_inventory_400.tres"),
+	ShopItemType.INVENTORY_SPACE_750: load("res://resources/shopitems/item_inventory_750.tres"),
+	ShopItemType.INVENTORY_SPACE_1250: load("res://resources/shopitems/item_inventory_1250.tres"),
 }
 
 static func random_weights(d: Dictionary):

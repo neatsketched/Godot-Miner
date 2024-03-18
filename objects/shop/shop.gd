@@ -110,6 +110,9 @@ func update_items() -> void:
 	for shop_item_type in Constants.ShopItemToResource.keys():
 		if shop_item_type in PlayerStats.items:
 			continue
+		var required_item = Constants.ShopItemToResource[shop_item_type].required_item
+		if required_item != Constants.ShopItemType.NO_ITEM and required_item not in PlayerStats.items:
+			continue
 
 		var new_panel = shop_item_entry.instantiate()
 		upgrade_container.add_child(new_panel)

@@ -5,6 +5,7 @@ signal money_changed
 signal items_changed
 
 var inventory: Dictionary = {}
+var inventory_size: int = 25
 var pickaxe_type: Constants.PickaxeType = Constants.PickaxeType.SHODDY
 var items: Array[Constants.ShopItemType]
 var money: int = 0:
@@ -47,8 +48,18 @@ func add_shop_item(item_type: Constants.ShopItemType) -> void:
 		return
 
 	items.append(item_type)
-	items_changed.emit()
 
 	var item_resource = Constants.ShopItemToResource[item_type]
 	if item_resource.pickaxe_type > pickaxe_type:
 		pickaxe_type = item_resource.pickaxe_type
+	inventory_size += item_resource.inventory_size
+
+	items_changed.emit()
+
+func get_taken_inventory_space() -> int:
+	if inventory.values().size() <= 0:
+		return 0
+	return inventory.values().reduce(func (x, y): return x+y)
+
+func is_inventory_full() -> bool:
+	return get_taken_inventory_space() >= inventory_size

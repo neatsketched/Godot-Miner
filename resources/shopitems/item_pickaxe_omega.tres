@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://bt4pw6xc25bp7"]
+
+[ext_resource type="Texture2D" uid="uid://c4h01kov17hlb" path="res://assets/sprites/upgrade_arrow.png" id="1_pi7g3"]
+[ext_resource type="Script" path="res://resources/base/shop_item.gd" id="2_ay885"]
+
+[resource]
+script = ExtResource("2_ay885")
+name = "Omega Pickaxe"
+desc = "An omega pickaxe that's slightly more efficient and allows you to break more blocks!"
+cost = 5000
+shop_item_type = 3
+image = ExtResource("1_pi7g3")
+pickaxe_type = 4
+inventory_size = 0
+required_item = 2

@@ -96,4 +96,6 @@ func is_valid_for_selection() -> bool:
 		return false
 	elif block_resource.break_strength > Constants.get_pickaxe_resource_from_type(PlayerStats.pickaxe_type).break_strength:
 		return false
+	elif PlayerStats.is_inventory_full():
+		return false
 	return true

@@ -2,15 +2,19 @@ extends VBoxContainer
 
 @export var block_inventory_entry: PackedScene
 
+@onready var inventory_label = %InventoryLabel
+
 var block_panels: Array = []
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerStats.inventory_changed.connect(update_inventory)
+	PlayerStats.items_changed.connect(update_inventory)
 
 func _exit_tree():
 	PlayerStats.inventory_changed.disconnect(update_inventory)
+	PlayerStats.items_changed.disconnect(update_inventory)
 
 func update_inventory():
 	for block_panel in block_panels:
@@ -24,3 +28,5 @@ func update_inventory():
 		# Make sure this panel is at the top so that the ordering is correct
 		move_child(new_panel, 0)
 		block_panels.append(new_panel)
+
+	inventory_label.text = 'Inventory (' + str(PlayerStats.get_taken_inventory_space()) + '/' + str(PlayerStats.inventory_size) + ')'

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://cdn2w5ppn0bem"]
+
+[ext_resource type="Texture2D" uid="uid://b0ujcopf2woht" path="res://assets/sprites/upgrade_arrow_blue.png" id="1_1qf2r"]
+[ext_resource type="Script" path="res://resources/base/shop_item.gd" id="2_7wcne"]
+
+[resource]
+script = ExtResource("2_7wcne")
+name = "+750 Inventory Space"
+desc = "+750 Additional Space for your inventory!"
+cost = 2000
+shop_item_type = 11
+image = ExtResource("1_1qf2r")
+pickaxe_type = 0
+inventory_size = 750
+required_item = 10

@@ -11,3 +11,5 @@ cost = 150
 shop_item_type = 1
 image = ExtResource("1_05qs1")
 pickaxe_type = 2
+inventory_size = 0
+required_item = 0
