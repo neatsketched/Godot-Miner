@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://b1v3rsr288koy"]
+
+[ext_resource type="Texture2D" uid="uid://c4h01kov17hlb" path="res://assets/sprites/upgrade_arrow.png" id="1_khxxl"]
+[ext_resource type="Script" path="res://resources/base/shop_item.gd" id="2_r16eo"]
+
+[resource]
+script = ExtResource("2_r16eo")
+name = "Zenith Pickaxe"
+desc = "A zenith pickaxe that's slightly more efficient and allows you to break more blocks!"
+cost = 5500
+shop_item_type = 13
+image = ExtResource("1_khxxl")
+pickaxe_type = 5
+inventory_size = 0
+required_item = 3

@@ -70,6 +70,7 @@ enum PickaxeType {
 	REINFORCED,
 	SUPREME,
 	OMEGA,
+	ZENITH,
 }
 
 static var PickaxeToResource: Dictionary = {
@@ -78,6 +79,7 @@ static var PickaxeToResource: Dictionary = {
 	PickaxeType.REINFORCED: load("res://resources/pickaxes/reinforced_pickaxe.tres"),
 	PickaxeType.SUPREME: load("res://resources/pickaxes/supreme_pickaxe.tres"),
 	PickaxeType.OMEGA: load("res://resources/pickaxes/omega_pickaxe.tres"),
+	PickaxeType.ZENITH: load("res://resources/pickaxes/zenith_pickaxe.tres"),
 }
 
 static func get_pickaxe_resource_from_type(pickaxe_type: PickaxeType) -> Pickaxe:
@@ -104,6 +106,7 @@ enum ShopItemType {
 	INVENTORY_SPACE_400,   # 600 -> 1000
 	INVENTORY_SPACE_750,   # 1000 -> 1750
 	INVENTORY_SPACE_1250,  # 1750 -> 3000
+	ZENITH_PICKAXE,
 }
 
 static var ShopItemToResource: Dictionary = {
@@ -119,6 +122,7 @@ static var ShopItemToResource: Dictionary = {
 	ShopItemType.INVENTORY_SPACE_400: load("res://resources/shopitems/item_inventory_400.tres"),
 	ShopItemType.INVENTORY_SPACE_750: load("res://resources/shopitems/item_inventory_750.tres"),
 	ShopItemType.INVENTORY_SPACE_1250: load("res://resources/shopitems/item_inventory_1250.tres"),
+	ShopItemType.ZENITH_PICKAXE: load("res://resources/shopitems/item_pickaxe_zenith.tres"),
 }
 
 static func random_weights(d: Dictionary):
@@ -131,10 +135,10 @@ static func random_weights(d: Dictionary):
 			return d[w]
 
 static func calculate_teleport_time() -> int:
-	# Teleport time is equal to the player's depth (in blocks) divided by 10
+	# Teleport time is equal to the player's depth (in blocks) divided by 15
 	if not Player.instance:
 		return 5
-	return int(round(Player.instance.global_position.y / (-10*BlockSize)))
+	return int(round(Player.instance.global_position.y / (-15*BlockSize)))
 
 static func get_player_depth_value() -> int:
 	if not Player.instance:

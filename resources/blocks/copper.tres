@@ -12,5 +12,5 @@ value = 10
 spawn_range_min = 5
 spawn_range_max = 120
 spawn_weight = 10
-break_time = 2.5
+break_time = 1.24
 break_strength = 2

@@ -7,4 +7,4 @@ script = ExtResource("1_mftay")
 name = "Supreme Pickaxe"
 pickaxe_type = 3
 break_strength = 4
-break_time = 3.5
+break_time = 7.75

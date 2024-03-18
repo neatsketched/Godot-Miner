@@ -7,4 +7,4 @@ script = ExtResource("1_fmps3")
 name = "Reinforced Pickaxe"
 pickaxe_type = 2
 break_strength = 3
-break_time = 2.75
+break_time = 5.5

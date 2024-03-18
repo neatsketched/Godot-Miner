@@ -7,7 +7,7 @@
 script = ExtResource("1_dq3h4")
 name = "Supreme Pickaxe"
 desc = "A supreme pickaxe that's slightly more efficient and allows you to break more blocks!"
-cost = 1000
+cost = 800
 shop_item_type = 2
 image = ExtResource("1_4ydbj")
 pickaxe_type = 3
