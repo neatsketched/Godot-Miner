@@ -4,6 +4,7 @@ signal inventory_changed
 signal money_changed
 
 var inventory: Dictionary = {}
+var pickaxe_type: Constants.PickaxeType = Constants.PickaxeType.SHODDY
 var money: int = 0:
 	set(x):
 		money = x

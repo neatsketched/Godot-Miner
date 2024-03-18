@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Pickaxe" load_steps=2 format=3 uid="uid://b3tnm0o1y4wqa"]
+
+[ext_resource type="Script" path="res://resources/base/pickaxe.gd" id="1_mftay"]
+
+[resource]
+script = ExtResource("1_mftay")
+name = "Supreme Pickaxe"
+pickaxe_type = 3
+break_strength = 4
+break_time = 3.5

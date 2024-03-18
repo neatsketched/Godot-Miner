@@ -61,6 +61,32 @@ static func get_valid_blocks_for_depth(depth: int) -> Array[BlockType]:
 
 	return valid_types
 
+enum PickaxeType {
+	# The base pickaxe you start with
+	SHODDY,
+	# Quick upgrade as part of the tutorial
+	STANDARD,
+	# Actual upgraded pickaxes
+	REINFORCED,
+	SUPREME,
+	OMEGA,
+}
+
+static var PickaxeToResource: Dictionary = {
+	PickaxeType.SHODDY: load("res://resources/pickaxes/shoddy_pickaxe.tres"),
+	PickaxeType.STANDARD: load("res://resources/pickaxes/standard_pickaxe.tres"),
+	PickaxeType.REINFORCED: load("res://resources/pickaxes/reinforced_pickaxe.tres"),
+	PickaxeType.SUPREME: load("res://resources/pickaxes/supreme_pickaxe.tres"),
+	PickaxeType.OMEGA: load("res://resources/pickaxes/omega_pickaxe.tres"),
+}
+
+static func get_pickaxe_resource_from_type(pickaxe_type: PickaxeType) -> Pickaxe:
+	var pickaxe_resource = PickaxeToResource.get(pickaxe_type)
+	if not pickaxe_resource:
+		print("WARNING! Invalid pickaxe type: " + str(pickaxe_type))
+		return PickaxeToResource[PickaxeType.SHODDY]
+	return pickaxe_resource
+
 static func random_weights(d: Dictionary):
 	var weight_sum: float = d.keys().reduce(func (x, y): return x+y)
 	var weight_rng: float = randf() * weight_sum
@@ -82,5 +108,5 @@ static func get_player_depth_value() -> int:
 	return max(int(1+round(Player.instance.global_position.y / -BlockSize)), 0)
 
 static func calculate_break_time(block: WorldBlock) -> float:
-	var base_block_value = 4.0 * block.block_resource.break_time
-	return base_block_value
+	var pickaxe_resource = get_pickaxe_resource_from_type(PlayerStats.pickaxe_type)
+	return 4.0 * block.block_resource.break_time * (1/pickaxe_resource.break_time)

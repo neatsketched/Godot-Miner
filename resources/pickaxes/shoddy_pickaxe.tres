@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Pickaxe" load_steps=2 format=3 uid="uid://y4ba72fthc3o"]
+
+[ext_resource type="Script" path="res://resources/base/pickaxe.gd" id="1_b4dwn"]
+
+[resource]
+script = ExtResource("1_b4dwn")
+name = "Shoddy Pickaxe"
+pickaxe_type = 0
+break_strength = 1
+break_time = 1.0
