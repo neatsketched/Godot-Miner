@@ -8,7 +8,7 @@ enum BlockType {
 	# Generic, not particularly valuable block types
 	DIRT, STONE, GRANITE, OBSIDIAN,
 	# Ores and valuables
-	COPPER, SILVER, GOLD, DIAMOND, PLATINUM,
+	COPPER, SILVER, GOLD, DIAMOND, VERANTITE,
 	# Unbreakable block type
 	BEDROCK,
 }
@@ -23,10 +23,13 @@ static var BlockToResource: Dictionary = {
 	# Generics
 	BlockType.DIRT: load("res://resources/blocks/dirt.tres"),
 	BlockType.STONE: load("res://resources/blocks/stone.tres"),
+	BlockType.GRANITE: load("res://resources/blocks/granite.tres"),
 	# Ores
 	BlockType.COPPER: load("res://resources/blocks/copper.tres"),
 	BlockType.SILVER: load("res://resources/blocks/silver.tres"),
 	BlockType.GOLD: load("res://resources/blocks/gold.tres"),
+	BlockType.DIAMOND: load("res://resources/blocks/diamond.tres"),
+	BlockType.VERANTITE: load("res://resources/blocks/verantite.tres"),
 	# Unbreakable
 	BlockType.BEDROCK: load("res://resources/blocks/bedrock.tres"),
 }

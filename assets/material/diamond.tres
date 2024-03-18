@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dnsc40k7y3man"]
+
+[ext_resource type="Texture2D" uid="uid://c5gpolqkalc7t" path="res://assets/sprites/diamond.png" id="1_bvi5x"]
+
+[resource]
+albedo_texture = ExtResource("1_bvi5x")
+uv1_scale = Vector3(3, 3, 3)
+texture_filter = 0

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Block" load_steps=3 format=3 uid="uid://cuyuwmu56xr1p"]
+
+[ext_resource type="Material" uid="uid://dnsc40k7y3man" path="res://assets/material/diamond.tres" id="1_v7qw7"]
+[ext_resource type="Script" path="res://resources/base/block.gd" id="2_r5a24"]
+
+[resource]
+script = ExtResource("2_r5a24")
+name = "Diamond"
+block_type = 9
+material = ExtResource("1_v7qw7")
+value = 65
+spawn_range_min = 185
+spawn_range_max = 500
+spawn_weight = 3
+break_time = 2.6
+break_strength = 4
