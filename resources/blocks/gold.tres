@@ -13,3 +13,4 @@ spawn_range_min = 75
 spawn_range_max = 340
 spawn_weight = 4
 break_time = 3.0
+break_strength = 3

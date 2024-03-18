@@ -21,7 +21,11 @@ var break_timer: Timer = null
 @export var selected := false:
 	set(x):
 		selected = x
-		var albedo_color = Color(0.7, 0.7, 1, 1) if selected else standard_color
+		var albedo_color = Color.WHITE
+		if selected:
+			albedo_color = Color(0.7, 0.7, 1, 1) if is_valid_for_selection() else Color(1, 0.6, 0.6, 1)
+		else:
+			albedo_color = standard_color
 		block_mesh.get_surface_override_material(0).albedo_color = albedo_color
 
 # Called when the node enters the scene tree for the first time.
@@ -88,4 +92,8 @@ func stop_particles() -> void:
 	block_particles.emitting = false
 
 func is_valid_for_selection() -> bool:
-	return block_resource.block_type not in Constants.UnbreakableBlocks
+	if block_resource.block_type in Constants.UnbreakableBlocks:
+		return false
+	elif block_resource.break_strength > Constants.get_pickaxe_resource_from_type(PlayerStats.pickaxe_type).break_strength:
+		return false
+	return true
