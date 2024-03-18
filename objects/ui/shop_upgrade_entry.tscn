@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c4h01kov17hlb" path="res://assets/sprites/upgrade_arrow.png" id="2_a6rmf"]
 
 [node name="ShopUpgradeEntry" type="Button"]
-custom_minimum_size = Vector2(250, 25)
+custom_minimum_size = Vector2(345, 25)
 offset_right = 215.0
 offset_bottom = 24.0
 script = ExtResource("1_sctad")
