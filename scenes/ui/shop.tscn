@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cl8dmh5oxqveu"]
+[gd_scene load_steps=15 format=3 uid="uid://cl8dmh5oxqveu"]
 
 [ext_resource type="PackedScene" uid="uid://dynl4h43bkgch" path="res://objects/ui/block_inventory_entry.tscn" id="1_lblk6"]
 [ext_resource type="Script" path="res://objects/shop/shop.gd" id="1_rbvb8"]
+[ext_resource type="PackedScene" uid="uid://dr181nl0ndhsf" path="res://objects/ui/shop_upgrade_entry.tscn" id="3_bdhga"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gdi5i"]
 font_size = 32
@@ -45,6 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rbvb8")
 block_inventory_entry = ExtResource("1_lblk6")
+shop_item_entry = ExtResource("3_bdhga")
 
 [node name="MidAnchor" type="Control" parent="."]
 layout_mode = 1
@@ -67,58 +69,61 @@ offset_top = -250.0
 offset_right = 350.0
 offset_bottom = 250.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MidAnchor/Container"]
+[node name="TabContainer" type="TabContainer" parent="MidAnchor/Container"]
 layout_mode = 2
 
-[node name="TitleMargin" type="MarginContainer" parent="MidAnchor/Container/VBoxContainer"]
+[node name="Sell" type="VBoxContainer" parent="MidAnchor/Container/TabContainer"]
+layout_mode = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="MidAnchor/Container/TabContainer/Sell"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 
-[node name="TitleLabel" type="Label" parent="MidAnchor/Container/VBoxContainer/TitleMargin"]
+[node name="TitleLabel" type="Label" parent="MidAnchor/Container/TabContainer/Sell/TitleMargin"]
 layout_mode = 2
-text = "SHOP"
+text = "SELL"
 label_settings = SubResource("LabelSettings_gdi5i")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MidAnchor/Container/VBoxContainer"]
+[node name="MarginContainerSell" type="MarginContainer" parent="MidAnchor/Container/TabContainer/Sell"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="HorizontalContainer" type="HBoxContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer"]
+[node name="HorizontalContainer" type="HBoxContainer" parent="MidAnchor/Container/TabContainer/Sell/MarginContainerSell"]
 custom_minimum_size = Vector2(0, 425)
 layout_mode = 2
 
-[node name="LeftContainer" type="ScrollContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer"]
+[node name="LeftContainer" type="ScrollContainer" parent="MidAnchor/Container/TabContainer/Sell/MarginContainerSell/HorizontalContainer"]
 custom_minimum_size = Vector2(345, 0)
 layout_mode = 2
 
-[node name="InventoryContainer" type="VBoxContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/LeftContainer"]
+[node name="InventoryContainer" type="VBoxContainer" parent="MidAnchor/Container/TabContainer/Sell/MarginContainerSell/HorizontalContainer/LeftContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer"]
+[node name="VSeparator" type="VSeparator" parent="MidAnchor/Container/TabContainer/Sell/MarginContainerSell/HorizontalContainer"]
 layout_mode = 2
 
-[node name="RightContainer" type="PanelContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer"]
+[node name="RightContainer" type="PanelContainer" parent="MidAnchor/Container/TabContainer/Sell/MarginContainerSell/HorizontalContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MidAnchor/Container/TabContainer/Sell/MarginContainerSell/HorizontalContainer/RightContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 164
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="RightVBox" type="VBoxContainer" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer/MarginContainer"]
+[node name="RightVBox" type="VBoxContainer" parent="MidAnchor/Container/TabContainer/Sell/MarginContainerSell/HorizontalContainer/RightContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="SellValueLabel" type="Label" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+[node name="SellValueLabel" type="Label" parent="MidAnchor/Container/TabContainer/Sell/MarginContainerSell/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
@@ -126,7 +131,7 @@ text = "Total Sell Value:
 $0"
 horizontal_alignment = 1
 
-[node name="SellButton" type="Button" parent="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+[node name="SellButton" type="Button" parent="MidAnchor/Container/TabContainer/Sell/MarginContainerSell/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_21v3q")
@@ -136,14 +141,112 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_omtgx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_eyv83")
 text = "Sell"
 
+[node name="Upgrades" type="VBoxContainer" parent="MidAnchor/Container/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="MidAnchor/Container/TabContainer/Upgrades"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="TitleLabel" type="Label" parent="MidAnchor/Container/TabContainer/Upgrades/TitleMargin"]
+layout_mode = 2
+text = "UPGRADES"
+label_settings = SubResource("LabelSettings_gdi5i")
+horizontal_alignment = 1
+
+[node name="MarginContainerUpgrades" type="MarginContainer" parent="MidAnchor/Container/TabContainer/Upgrades"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HorizontalContainer" type="HBoxContainer" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades"]
+custom_minimum_size = Vector2(0, 425)
+layout_mode = 2
+
+[node name="LeftContainer" type="ScrollContainer" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer"]
+custom_minimum_size = Vector2(345, 0)
+layout_mode = 2
+
+[node name="UpgradesContainer" type="VBoxContainer" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/LeftContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer"]
+layout_mode = 2
+
+[node name="RightContainer" type="PanelContainer" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="RightVBox" type="VBoxContainer" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/RightContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SelectedUpgradeTitle" type="Label" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Select an Upgrade"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="UpgradeIcon" type="TextureRect" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="SelectedUpgradeDesc" type="Label" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Select an Upgrade to purchase!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 64
+
+[node name="SelectedUpgradeCost" type="Label" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "Cost: $0"
+horizontal_alignment = 1
+
+[node name="SelectedUpgradeButton" type="Button" parent="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/RightContainer/MarginContainer/RightVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_21v3q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fvbbt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bg8ln")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_omtgx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eyv83")
+text = "Purchase"
+
 [node name="XMargin" type="MarginContainer" parent="MidAnchor/Container"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="XButton" type="Button" parent="MidAnchor/Container/XMargin"]
 unique_name_in_owner = true
@@ -155,4 +258,5 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_bkj60")
 theme_override_styles/focus = SubResource("StyleBoxFlat_72y0t")
 text = " X "
 
-[connection signal="pressed" from="MidAnchor/Container/VBoxContainer/MarginContainer/HorizontalContainer/RightContainer/MarginContainer/RightVBox/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="MidAnchor/Container/TabContainer/Sell/MarginContainerSell/HorizontalContainer/RightContainer/MarginContainer/RightVBox/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="MidAnchor/Container/TabContainer/Upgrades/MarginContainerUpgrades/HorizontalContainer/RightContainer/MarginContainer/RightVBox/SelectedUpgradeButton" to="." method="_on_selected_upgrade_button_pressed"]

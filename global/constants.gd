@@ -87,6 +87,20 @@ static func get_pickaxe_resource_from_type(pickaxe_type: PickaxeType) -> Pickaxe
 		return PickaxeToResource[PickaxeType.SHODDY]
 	return pickaxe_resource
 
+enum ShopItemType {
+	STANDARD_PICKAXE,
+	REINFORCED_PICKAXE,
+	SUPREME_PICKAXE,
+	OMEGA_PICKAXE,
+}
+
+static var ShopItemToResource: Dictionary = {
+	ShopItemType.STANDARD_PICKAXE: load("res://resources/shopitems/item_standard_pickaxe.tres"),
+	ShopItemType.REINFORCED_PICKAXE: load("res://resources/shopitems/item_reinforced_pickaxe.tres"),
+	ShopItemType.SUPREME_PICKAXE: load("res://resources/shopitems/item_supreme_pickaxe.tres"),
+	ShopItemType.OMEGA_PICKAXE: load("res://resources/shopitems/item_omega_pickaxe.tres"),
+}
+
 static func random_weights(d: Dictionary):
 	var weight_sum: float = d.keys().reduce(func (x, y): return x+y)
 	var weight_rng: float = randf() * weight_sum

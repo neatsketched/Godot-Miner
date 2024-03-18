@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://d3hvsl6jsp3vl"]
+
+[ext_resource type="Texture2D" uid="uid://c4h01kov17hlb" path="res://assets/sprites/upgrade_arrow.png" id="1_e8heh"]
+[ext_resource type="Script" path="res://resources/base/shop_item.gd" id="1_kevnm"]
+
+[resource]
+script = ExtResource("1_kevnm")
+name = "Standard Pickaxe"
+desc = "An average pickaxe that's slightly more efficient and allows you to break Copper and Silver blocks!"
+cost = 10
+image = ExtResource("1_e8heh")
+pickaxe_type = 1

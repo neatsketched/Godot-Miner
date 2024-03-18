@@ -2,9 +2,11 @@ extends Node
 
 signal inventory_changed
 signal money_changed
+signal items_changed
 
 var inventory: Dictionary = {}
 var pickaxe_type: Constants.PickaxeType = Constants.PickaxeType.SHODDY
+var items: Array[Constants.ShopItemType]
 var money: int = 0:
 	set(x):
 		money = x
@@ -39,3 +41,14 @@ func clear_inventory() -> void:
 
 func get_inventory_quantity(block_type: Constants.BlockType) -> int:
 	return inventory.get(block_type, 0)
+
+func add_shop_item(item_type: Constants.ShopItemType) -> void:
+	if item_type in items:
+		return
+
+	items.append(item_type)
+	items_changed.emit()
+
+	var item_resource = Constants.ShopItemToResource[item_type]
+	if item_resource.pickaxe_type > pickaxe_type:
+		pickaxe_type = item_resource.pickaxe_type

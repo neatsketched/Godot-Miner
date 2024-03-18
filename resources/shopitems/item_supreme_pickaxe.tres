@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://b1t5nryu3tv8e"]
+
+[ext_resource type="Texture2D" uid="uid://c4h01kov17hlb" path="res://assets/sprites/upgrade_arrow.png" id="1_4ydbj"]
+[ext_resource type="Script" path="res://resources/base/shop_item.gd" id="1_dq3h4"]
+
+[resource]
+script = ExtResource("1_dq3h4")
+name = "Supreme Pickaxe"
+desc = "A supreme pickaxe that's slightly more efficient and allows you to break more blocks!"
+cost = 1000
+shop_item_type = 2
+image = ExtResource("1_4ydbj")
+pickaxe_type = 3

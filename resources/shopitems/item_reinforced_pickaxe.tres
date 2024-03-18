@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://bgbx3i1rc5037"]
+
+[ext_resource type="Script" path="res://resources/base/shop_item.gd" id="1_0w065"]
+[ext_resource type="Texture2D" uid="uid://c4h01kov17hlb" path="res://assets/sprites/upgrade_arrow.png" id="1_05qs1"]
+
+[resource]
+script = ExtResource("1_0w065")
+name = "Reinforced Pickaxe"
+desc = "A reinforced pickaxe that's slightly more efficient and allows you to break Stone and Gold blocks!"
+cost = 150
+shop_item_type = 1
+image = ExtResource("1_05qs1")
+pickaxe_type = 2
