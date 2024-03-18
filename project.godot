@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Miner"
+config/name="Mining Simulator Infinite"
 run/main_scene="res://scenes/level/level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="res://assets/sprites/upgrade_arrow.png"
 
 [autoload]
 

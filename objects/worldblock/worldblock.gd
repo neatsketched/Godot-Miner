@@ -60,6 +60,8 @@ func begin_attempt_break_block() -> void:
 func stop_attempt_break_block() -> void:
 	breaking_block = false
 	if break_timer:
+		if break_timer.timeout.is_connected(_progress_break_stage):
+			break_timer.timeout.disconnect(_progress_break_stage)
 		break_timer.queue_free()
 		break_timer = null
 	local_break_mat.break_stage = BlockBreakMaterial.BreakStage.NONE
