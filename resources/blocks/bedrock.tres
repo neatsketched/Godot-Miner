@@ -5,6 +5,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7al5w"]
 albedo_texture = ExtResource("1_62nrp")
+texture_filter = 0
 
 [resource]
 script = ExtResource("2_pqdv3")
