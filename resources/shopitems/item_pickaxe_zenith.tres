@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_r16eo")
 name = "Zenith Pickaxe"
-desc = "A zenith pickaxe that's slightly more efficient and allows you to break more blocks!"
+desc = "A zenith pickaxe that's slightly more efficient!"
 cost = 5500
 shop_item_type = 13
 image = ExtResource("1_khxxl")

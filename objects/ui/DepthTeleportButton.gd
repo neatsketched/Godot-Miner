@@ -6,7 +6,7 @@ func _process(_delta):
 		_on_pressed()
 
 func _on_pressed():
-	if Constants.calculate_teleport_time() < 5:
+	if Constants.calculate_teleport_time() < 3.0:
 		# Just do an instant teleport man no one cares
 		Signals.s_teleport_surface_done.emit()
 		return

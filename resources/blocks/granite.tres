@@ -11,6 +11,6 @@ material = ExtResource("1_84dwt")
 value = 5
 spawn_range_min = 155
 spawn_range_max = 500
-spawn_weight = 75
+spawn_weight = 72
 break_time = 1.5
 break_strength = 4

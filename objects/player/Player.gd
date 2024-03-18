@@ -14,7 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var target_fov: float:
 	get:
-		return 75 + max(0, abs(velocity.y) - 15)
+		return min(75 + max(0, abs(velocity.y) - 15), 150)
 
 func _init():
 	Player.instance = self
