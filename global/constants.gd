@@ -110,6 +110,12 @@ enum ShopItemType {
 	INVENTORY_SPACE_750,   # 1000 -> 1750
 	INVENTORY_SPACE_1250,  # 1750 -> 3000
 	ZENITH_PICKAXE,
+	# Surface Teleport Upgrades
+	TELEPORT_1,  # 100% -> 120%
+	TELEPORT_2,  # 120% -> 140%
+	TELEPORT_3,  # 140% -> 160%
+	TELEPORT_4,  # 160% -> 180%
+	TELEPORT_5,  # 180% -> 200%
 }
 
 static var ShopItemToResource: Dictionary = {
@@ -126,7 +132,20 @@ static var ShopItemToResource: Dictionary = {
 	ShopItemType.INVENTORY_SPACE_750: load("res://resources/shopitems/item_inventory_750.tres"),
 	ShopItemType.INVENTORY_SPACE_1250: load("res://resources/shopitems/item_inventory_1250.tres"),
 	ShopItemType.ZENITH_PICKAXE: load("res://resources/shopitems/item_pickaxe_zenith.tres"),
+	ShopItemType.TELEPORT_1: load("res://resources/shopitems/item_teleport_1.tres"),
+	ShopItemType.TELEPORT_2: load("res://resources/shopitems/item_teleport_2.tres"),
+	ShopItemType.TELEPORT_3: load("res://resources/shopitems/item_teleport_3.tres"),
+	ShopItemType.TELEPORT_4: load("res://resources/shopitems/item_teleport_4.tres"),
+	ShopItemType.TELEPORT_5: load("res://resources/shopitems/item_teleport_5.tres"),
 }
+
+const TeleportItems = [
+	ShopItemType.TELEPORT_1,
+	ShopItemType.TELEPORT_2,
+	ShopItemType.TELEPORT_3,
+	ShopItemType.TELEPORT_4,
+	ShopItemType.TELEPORT_5,
+]
 
 static func random_weights(d: Dictionary):
 	var weight_sum: float = d.keys().reduce(func (x, y): return x+y)
@@ -141,7 +160,15 @@ static func calculate_teleport_time() -> int:
 	# Teleport time is equal to the player's depth (in blocks) divided by 15
 	if not Player.instance:
 		return 5
-	return int(round(Player.instance.global_position.y / (-15*BlockSize)))
+	var base_time = int(round(Player.instance.global_position.y / (-15*BlockSize)))
+	# Now apply teleport items
+	var num_teleport_items := 0
+	for shop_item: ShopItemType in TeleportItems:
+		if shop_item in PlayerStats.items:
+			num_teleport_items += 1
+
+	base_time /= (1 + (num_teleport_items*0.2))
+	return base_time
 
 static func get_player_depth_value() -> int:
 	if not Player.instance:

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://ck64i1n5w0xo4"]
+
+[ext_resource type="Texture2D" uid="uid://hr6jhme7cohe" path="res://assets/sprites/upgrade_arrow_purple.png" id="1_t4x72"]
+[ext_resource type="Script" path="res://resources/base/shop_item.gd" id="2_qjxw8"]
+
+[resource]
+script = ExtResource("2_qjxw8")
+name = "+20% Teleport Speed"
+desc = "Teleport to the surface 20% faster!"
+cost = 275
+shop_item_type = 15
+image = ExtResource("1_t4x72")
+pickaxe_type = 0
+inventory_size = 0
+required_item = 14
