@@ -7,7 +7,7 @@
 script = ExtResource("2_1okns")
 name = "+20% Teleport Speed"
 desc = "Teleport to the surface 20% faster!"
-cost = 1500
+cost = 800
 shop_item_type = 17
 image = ExtResource("1_kni1i")
 pickaxe_type = 0
