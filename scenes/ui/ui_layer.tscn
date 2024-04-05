@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://dvih3c5g2racm"]
 
 [ext_resource type="Texture2D" uid="uid://bwotke0ytjwex" path="res://assets/sprites/crosshair.png" id="1_pcdf0"]
-[ext_resource type="Script" path="res://scenes/ui/BreakProgressBar.gd" id="2_8p6p8"]
+[ext_resource type="Script" path="res://objects/ui/BreakProgressBar.gd" id="2_8p6p8"]
 [ext_resource type="PackedScene" uid="uid://cw0a35ln64bgf" path="res://objects/ui/inventory_container.tscn" id="2_lv8tu"]
 [ext_resource type="PackedScene" uid="uid://dynl4h43bkgch" path="res://objects/ui/block_inventory_entry.tscn" id="2_t3bpy"]
-[ext_resource type="Script" path="res://scenes/ui/CantBreakLabel.gd" id="3_tb0p0"]
+[ext_resource type="Script" path="res://objects/ui/CantBreakLabel.gd" id="3_tb0p0"]
 [ext_resource type="PackedScene" uid="uid://c6ofbeyeud5i" path="res://objects/ui/cash_container.tscn" id="4_1xujh"]
 [ext_resource type="PackedScene" uid="uid://dv5237ddoe5cu" path="res://objects/ui/depth_container.tscn" id="5_jrngf"]
 [ext_resource type="PackedScene" uid="uid://b6pqub26nues0" path="res://objects/ui/teleport_control.tscn" id="6_g2bhg"]
